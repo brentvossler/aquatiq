@@ -1,0 +1,122 @@
+/*Custom Nav Bar styles*/
+.nav_logo {
+height: 40px; 
+width: 40px; 
+}
+.navbar-brand {
+	padding: 5px;
+	padding-left: 10px;
+}
+.navbar-custom {
+    background-color: white;
+    color: #162037;
+    border-radius:0;
+}
+.navbar-custom .navbar-nav > li > a {
+    color:#162037;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#162037;
+}
+.navbar-btn-blue {
+	background-color: #162037;
+	color: white;
+
+}.margin-bottom {
+	margin-bottom: 0;
+}
+
+/* required to push body down because of fixed navbar*/
+body { 
+	padding-top: 50px; 
+}
+/* marquee */
+.marquee {
+  height: 25px;
+  width: 100%;
+
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee div {
+  display: block;
+  width: 200%;
+  height: 30px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 15s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 25%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -100%; }
+}
+
+/*Jumbotron custom styles*/
+.theme-block {
+	background-color: #162037;
+	color: white;
+}
+.reverse-theme-block {
+	background-color: white;
+	color: #162037;
+}
+.bg-blue {
+	background-color: #162037;
+}
+.text-blue {
+	color: #162037;
+}
+.bg-white {
+	background-color: white;
+}
+.text-white {
+	color: white;
+}
+.margin-bottom {
+	margin-bottom: 0;
+}
+.col-centered{d
+    margin: 0 auto;
+    float: none;
+}
+.offset-jumbo {
+	position: relative;
+	top: -50px;
+}
+.thumbnail-custom {
+	width: 175px;
+	height: 200px;
+	margin: 5px;
+	display: inline-block;
+	border: none;
+	background-color: #162037;
+	color: #162037;
+}
+.video-custom {
+	width: 100%;
+}
+
+.round-border {
+	border-radius: 10px;
+}
+
+/* Tile in marketplace styles */
+.tile {
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

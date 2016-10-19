@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="mainApp" >
+    <head>
+        <!-- Anchor/Brand Favicon -->
+        <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <!-- Set mobile responsiveness -->
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
+        <!-- boat, yacht, rental, -->
+        <meta name="description" content="San Diego boat rentals online. Find the perfect boat in our online marketplace. Invite your friends, split payments for boat rentals, cheap boat rentals, affordable boating," />
+        <meta name="keywords" content="online, boat, rentals, san diego, mission, bay, fishing, diving, boat party, boating, sailing, yachts, boats," />
+        <meta name="author" content="metatags generator">
+        <meta name="robots" content="index, follow">
+        <meta name="revisit-after" content="1 days">
+        <title>Aquatiq Boat Rentals</title>
+        <!-- jquery, Bootstrap.css, bootstrap.js, Custom CSS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" type ="text/css" />
+        <link rel="stylesheet" href="main.css" type="text/css" />
+        <!-- angular 1.5.8 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <!-- angular route -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+        <!-- Cusomt JS -->
+        <script src="main.js"></script>
+    </head>
+
+    <body ng-controller="mainCtrl as main">
+    
+        <!-- Begin Nav Bar -->
+        <nav class="navbar navbar-default navbar-custom navbar-fixed-top margin-bottom">
+            <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#"><img class="nav_logo" src="media/smallbluelogo.png" alt="Aquatiq"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/#/home">Home</a></li>
+                        <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/#/marketplace'">Find your boat!</button></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right navbarPadding">
+                        <li role="separator" class="divider"></li>
+                        <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/#/forbusiness'">For Business</button></li>
+                        <li><a href="#">Sign Up/Log In</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>           
+
+        <ng-view>
+        <!-- this is where HTML templates will be inserted -->
+        </ng-view>
+
+        <!-- Start Footer Copyright Bar -->
+        <section class="reverse-theme-block">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-xs-12"> 
+                        <div>
+                            <a class="navbar-brand" href="#"><img class="nav_logo" src="media/smallbluelogo.png" alt="Aquatiq"></a>
+                        </div>
+                        <div style="padding: 18px">
+                            <p class="pull-left small">Aquatiq, Inc.</p> <p class="pull-right small">Made with <i class="fa fa-heart" style="color: red;"></i> in San Diego!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!--// END Footer Copyright Bar -->
+    </body>
+</html>

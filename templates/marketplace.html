@@ -1,0 +1,18 @@
+<section class="theme-block">
+    <div class="container">
+        <div ng-repeat="items in main.list">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+                <div class="thumbnail">
+                    <img src="http://i.imgur.com/xYN6Wie.gif" alt="...">
+                    <div class="caption">
+                        <h3 class="tile">{{ items.title }}</h3>
+                        <p class="tile">{{ items.description }}</p>
+                        <p class="tile"><i class="fa fa-map-marker"></i> {{ items.location }}</p>
+                        <p class="tile text-center"><b style="color: green; font-size: 16pt;">{{ items.price }}/hr</b></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

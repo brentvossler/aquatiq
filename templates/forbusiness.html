@@ -1,0 +1,53 @@
+<div class="theme-block">
+	<div class="container theme-block">
+		<div class="row">
+			<form ng-submit="main.addBoat()">
+				<div class="col-xs-12">
+					<h2><u>Tell us about the rental</u></h2>
+					<div class="row">
+						<div class="form-group col-xs-12 col-md-8">
+							<label for="">Title</label>
+							<input ng-model="main.title" id="" type="text" class="form-control" placeholder="Name" required="">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-xs-12 col-md-8">
+							<label for="">Description</label>
+							<input ng-model="main.description" id="" type="text" class="form-control" placeholder="Name" required="">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-xs-12 col-md-4">
+							<label for="">Capacity</label>
+							<input type="text" class="form-control" placeholder="Address" required="">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="form-group col-xs-12 col-md-4">
+							<label for="">Price</label>
+							<input type="text" class="form-control" placeholder="$150" required="">
+						</div>
+					</div>
+				
+				<div class="row">
+					<div class="form-group col-xs-12 col-md-4">
+						<label for="">Telephone</label>
+						<input type="telephone" class="form-control" placeholder="444 564-0978" required="">
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="form-group col-xs-12 col-md-6">
+						<label for="">E-mail</label>
+						<input type="e-mail" class="form-control" placeholder="name@domain.com">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary navbar-btn">Submit</button>
+				<br/><br/><br/>
+			</form>
+		</div>
+	</div>
+</div>
