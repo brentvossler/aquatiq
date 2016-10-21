@@ -1,10 +1,12 @@
 <!-- Weather API -->
-<div class="marquee theme-block">
+<div ng-controller="weatherAPI as weather" class="marquee theme-block">
     <div>
-        <span>weather API will go here</span>
-        <span>weather API will go here</span>
-        <span>weather API will go here</span>
-        <span>weather API will go here</span>
+        <span>
+        {{weather.forecast.name}}, 
+        {{weather.forecast.skies}}, 
+        {{weather.forecast.temp}}F,  
+        {{weather.forecast.wind}}mph
+        </span>
     </div>
 </div>
 
@@ -18,7 +20,7 @@
 						<h1>Aquatiq</h1>
 					</div>
 					<div>
-						<p>Boating made simple.</p>
+						<p>Boating made simple and affordable.</p>
 						<p><br/></p>
 					</div>
 					<div>
@@ -28,7 +30,7 @@
 				</div>
 				<!-- Video -->
 				<div class="col-xs-12 col-sm-7 text-center">
-					<video class="text-center video-custom" controls autoplay loop>
+					<video class="text-center video-custom" controls loop>
 						<source src="https://www.dropbox.com/s/cwpm7zdozbxt3hg/boatvideo.mp4?dl=1" type="video/mp4"  />
 						Your browser does not support the video tag.
 					</video>
@@ -95,8 +97,7 @@
 							<p class="position">Co-founder & CEO | <a href="https://facebook.com/brent.vossler.3"><i class="fa fa-facebook"></i></a> | <a href="https://twitter.com/brent_vossler"><i class="fa fa-twitter"></i></a> | <a href="http://www.brentvossler.com">blog</a></p>
 						</div>
 						<div >
-							<p>Commercial fisherman. Navy. Army. Business Education. Developer. Startup Founder. 2 Boats. 18 Cars. 7 Motorcycles. Vegas. Diving. Spearfisherman. Startup. Entrepreneur.
-							</p>
+							<p>Commercial fisherman. Navy. Army. Business Education. Developer. Web Technology, Robotics, Boats, Cars and Motorcycles. Vegas. Diving. Spearfishing.</p>
 						</div>
 					</div>
 				</div>
