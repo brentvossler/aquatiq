@@ -55,7 +55,7 @@ function weatherController($http) {
 	weather.forecast = {};
 	
 	weather.getWeather = function() {
-		$http.get('http://api.openweathermap.org/data/2.5/weather?zip={80306},{us}&units=imperial&APPID=1db076fb994e59375b4ec4176b93391a').then(
+		$http.get('https://api.openweathermap.org/data/2.5/weather?zip={80306},{us}&units=imperial&APPID=1db076fb994e59375b4ec4176b93391a').then(
         function(res, status){
             console.log("got it", res.data);
             weather.forecast = {
