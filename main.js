@@ -43,9 +43,9 @@ function mainController() {
     	main.list.push(newBoat);
     }
 
-    main.list = []
+    main.list= [];
 }
-
+http://s2.quickmeme.com/img/76/7603e527515c6356f7ff12282fc3e715fe6542c8bf76215a768b4302659022f9.jpg
 // Start Second Controller
 weatherController.$inject = ['$http'];
 // API KEY: 1db076fb994e59375b4ec4176b93391a 
