@@ -19,13 +19,14 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type ="text/css" />
         <link rel="stylesheet" href="main.css" type="text/css" />
         
         <!-- angular -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.1/ng-file-upload.js"></script>
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.1/ng-file-upload.js"></script>
         
         <!-- Custom JS -->
         <script src="/js/controller.js"></script>
@@ -33,8 +34,8 @@
         <script src="/js/lib/hotjar.js"></script>
     </head>
 
-    <body>
-        <!-- Begin Nav Bar -->
+    <body ng-controller="mainController as main">
+    	<!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top margin-bottom">
             <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -45,11 +46,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
+                    <a class="navbar-brand" href="#"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div ng-controller="mainController as main" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/marketplace'">Find your boat!</button></li>
@@ -57,14 +58,88 @@
                     <ul class="nav navbar-nav navbar-right navbarPadding">
                         <li role="separator" class="divider"></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/dashboard'">For Business</button></li>
-                        <li><a href="/login">Register/Login</a></li>
+                        <li><a href="/login">Sign Up/Log In</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-        <p> test Home 1</p>
+        <!-- Begin Form -->
+		<div class="theme-block">
+			<div class="container theme-block">
+				<div class="row">
+					
+					<form ng-submit="main.createBoat()">
+						<div class="col-xs-12">
+
+							<h2><u>Tell us about the rental:</u></h2>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-8">
+									<label for="">Title</label>
+									<input ng-model="main.newBoat.title" type="text" class="form-control" required="yes">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-8">
+									<label for="">Description</label>
+									<textarea ng-model="main.newBoat.description" type="text" class="form-control" required="yes"></textarea>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-8">
+									<label for="">Type</label>
+                                    <select ng-model="main.newBoat.type" required="yes">
+                                        <option value="" selected disabled>Choose a type</option>
+                                        <option value="power boat">Power Boat</option>
+                                        <option value="sail boat">Sail Boat</option>
+                                    </select>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-8">
+									<label for="">Location</label>
+									<input ng-model="main.newBoat.location" type="text" class="form-control" required="yes">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-4">
+									<label for="">Capacity</label>
+									<input ng-model="main.newBoat.capacity" type="text" class="form-control" required="yes">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="form-group col-xs-12 col-md-4">
+									<label for="">Price/hr</label>
+									<input ng-model="main.newBoat.price" type="text" class="form-control" required="yes">
+								</div>
+							</div>
+						
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-md-4">
+                                    <label for="">Upload an Image</label>
+                                    <input type="file"  
+                                        ng-model="main.newBoat.image" 
+                                        ngf-pattern="'image/*'"
+                                        ngf-accept="'image/*'"
+                                        ngf-select=""
+                                    >
+                                    <!-- <input ng-model="main.newBoat.image" type="text" class="form-control" required="yes"> -->
+                                </div>
+                            </div>
+						<button type="submit" class="btn btn-primary navbar-btn">Submit</button>
+						<br/><br/><br/>
+					</form>
+				</div>
+			</div>
+		</div>
+
     </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="boatApp">
+<html ng-app="loginApp">
     <head>
         <title>SoCal Boat Rentals</title>
         <!-- Anchor/Brand Favicon -->
@@ -16,24 +16,24 @@
         <meta name="revisit-after" content="1 days">
 
         <!-- jquery, Bootstrap.css, bootstrap.js, Custom CSS-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type ="text/css" />
         <link rel="stylesheet" href="main.css" type="text/css" />
         
         <!-- angular -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.1/ng-file-upload.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
         
         <!-- Custom JS -->
-        <script src="/js/controller.js"></script>
-        <script src="/js/factory.js"></script>
+        <script src="/js/loginController.js"></script>
+        <script src="/js/lib/pwdValidator.js"></script>
         <script src="/js/lib/hotjar.js"></script>
     </head>
 
     <body>
+
         <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top margin-bottom">
             <div class="container-fluid">
@@ -45,26 +45,48 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
+                    <a class="navbar-brand" href="#"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div ng-controller="mainController as main" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
-                        <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/marketplace'">Find your boat!</button></li>
+                        <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/marketplace.html'">Find your boat!</button></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right navbarPadding">
                         <li role="separator" class="divider"></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/dashboard'">For Business</button></li>
-                        <li><a href="/login">Register/Login</a></li>
+                        <li><a href="/login">Sign Up/Log In</a></li>
                         <li><a href="/logout">Logout</a></li>
+
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-        <p> test Home 1</p>
+        <!-- Login -->
+        <div ng-controller="loginController as login">
+            <form id="login" ng-submit="login.submit()">
+                <input type="email" ng-model="login.email" placeholder="Email"/>
+                <input type="password" ng-model="login.password" placeholder="Password"/>
+                <button type="submit">Login</button>
+                <a href="/index">Recover Password</a>
+            </form>
+        </div>
+        <!-- Register -->
+        <div ng-controller="registerController as register">
+            <form id="register" ng-submit="register.submit()">
+                <input type="email" ng-model="register.email" placeholder="Email" required="yes"/>
+                <input type="password" placeholder="Password"name="pass1" id="pass1">
+                <input type="password" ng-model="register.password" placeholder="Confirm Password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
+                <span id="confirmMessage" class="confirmMessage"></span>
+        
+                <input type="text" ng-model="register.firstname" placeholder="First Name" required="yes"/>
+                <input type="text" ng-model="register.lastname" placeholder="Last Name" equired="yes"/>
+                <input type="date" ng-model="register.birthday" placeholder="Birthday" required="yes"/>
+                <button type="submit">Register</button>
+            </form>
+        </div>
     </body>
-
 </html>

@@ -23,17 +23,19 @@
         <link rel="stylesheet" href="main.css" type="text/css" />
         
         <!-- angular -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.min.js"></script>
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.1/ng-file-upload.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-route.js"></script>
+         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.0.1/ng-file-upload.js"></script>
         
         <!-- Custom JS -->
         <script src="/js/controller.js"></script>
         <script src="/js/factory.js"></script>
         <script src="/js/lib/hotjar.js"></script>
+
     </head>
 
-    <body>
+    <body ng-controller = "mainController as main">
+
         <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top margin-bottom">
             <div class="container-fluid">
@@ -45,11 +47,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
+                    <a class="navbar-brand" href="#"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div ng-controller="mainController as main" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/">Home</a></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/marketplace'">Find your boat!</button></li>
@@ -57,14 +59,36 @@
                     <ul class="nav navbar-nav navbar-right navbarPadding">
                         <li role="separator" class="divider"></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/dashboard'">For Business</button></li>
-                        <li><a href="/login">Register/Login</a></li>
+                        <li><a href="/login">Sign Up/Log In</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
 
-        <p> test Home 1</p>
+        <!-- begin tiles -->
+        <section class="theme-block">
+            <div class="container">
+                <div ng-repeat="boat in main.boatList">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
+                        <div class="thumbnail">
+                            <img class="tile-image" src="{{boat.image}}" />
+                            <div class="caption">
+                                <h3 class="tile">{{ boat.title }}</h3>
+                                <p class="tile">{{ boat.description }}</p>
+                                <p class="tile">{{ boat.type }}</p>
+                                <p class="tile">{{ boat.capacity }}</p>
+                                <p class="tile"><i class="fa fa-map-marker"></i> {{ boat.location }}</p>
+                                <p class="tile text-center"><b style="color: green; font-size: 16pt;">{{ boat.price }}/hr or {{ boat.price / boat.capacity}} </b></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+
+       
     </body>
 
 </html>
