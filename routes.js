@@ -44,7 +44,7 @@ module.exports = function(app) {
 	 		html: "<p>You have a  new message with the following details</p><ul><li>Name:"+req.body.name+"</li><li>Email: "+req.body.email+"</li><li>Message:"+req.body.message+"</li></ul>"
 	 	};
 
-	 	transporter.sendMail(mailOptions, function(err, info) {
+	 	transporter.sendMail(mailOptions, function(err, info){
 	 		if(err){
 	 			console.log(err);
 	 			res.send("Error sending mail!", err);
@@ -52,7 +52,7 @@ module.exports = function(app) {
 	 		else {
 	 			console.log("'Message sent" + info.response);
 	 			res.redirect("/");
-	 		}
+	 		}  
 	 	});
 	});
 
