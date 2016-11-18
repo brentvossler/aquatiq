@@ -37,7 +37,7 @@
     <body ng-controller = "mainController as main">
 
         <!-- Begin Nav Bar -->
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top margin-bottom">
+        <nav class="navbar navbar-default navbar-custom navbar-fixed-top theme">
             <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
+                    <a class="navbar-brand" href="/"><i class="nav_logo fa fa-anchor fa-2x"></i></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -59,13 +59,13 @@
                     <ul class="nav navbar-nav navbar-right navbarPadding">
                         <li role="separator" class="divider"></li>
                         <li><button type="button" class="btn btn-primary navbar-btn" onclick="location.href='/dashboard'">For Business</button></li>
-                        <li><a href="/login">Sign Up/Log In</a></li>
+                        <li><a href="/login">Login</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <!-- begin tiles -->
+
         Details:
 
         {{main.boat}}
