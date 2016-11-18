@@ -9,8 +9,10 @@ var boatSchema = mongoose.Schema({
 	location: 		{type: String, required: true},
 	address: 		{type: String, required: true},
 	price: 			{type: String, required: true},
-	image: 			{type: String, required: true}
+	image: 			{type: String, required: true},
+	owner: 			{type: mongoose.Schema.ObjectId, ref: "user" }
 });
 
 module.exports = mongoose.model('boat', boatSchema);
+
 

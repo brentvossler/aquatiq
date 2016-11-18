@@ -3,17 +3,11 @@ const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const routes = require("./routes.js");
+const nodemailer = require("nodemailer");
 const app = express();
 var fs = require('fs');
 
 app.use(morgan('dev'));
-
-// create a write stream (in append mode) 
-//var accessLogStream = fs.createWriteStream(__dirname + '/access.log', {flags: 'a'});
- 
-// setup the logger 
-//app.use(morgan('combined', {stream: accessLogStream}));
-
 app.use(bodyParser.urlencoded({extended:true}), bodyParser.json());
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/socalboats');
@@ -29,6 +23,7 @@ const sessions = require('client-sessions')({
             secure: false         // when true, cookie will only be read when sent over HTTPS
         }
     }); // encrypted cookies!
+
 app.use(sessions);
 PORT = process.env.PORT || 8080;
 
@@ -42,3 +37,4 @@ app.listen(PORT, function(err) {
 	};
 	console.log("server is listening to port " + PORT);
 });
+

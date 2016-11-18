@@ -20,7 +20,7 @@
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type ="text/css" />
-        <link rel="stylesheet" href="main.css" type="text/css" />
+        <link rel="stylesheet" href="/main.css" type="text/css" />
         
         <!-- angular -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
@@ -30,7 +30,6 @@
         <!-- Custom JS -->
         <script src="/js/controller.js"></script>
         <script src="/js/factory.js"></script>
-        <script src="/js/lib/hotjar.js"></script>
 
     </head>
 
@@ -62,33 +61,33 @@
                         <li><a href="/login">Sign Up/Log In</a></li>
                         <li><a href="/logout">Logout</a></li>
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+            </div>
         </nav>
 
         <!-- begin tiles -->
         <section class="theme-block">
-            <div class="container">
+            <div class="container" >
                 <div ng-repeat="boat in main.boatList">
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2">
-                        <div class="thumbnail">
-                            <img class="tile-image" src="{{boat.image}}" />
+                        <a ng-href="/details/{{boat._id}}">
+                        <div class="thumbnail" ng-click="">
+                            <img class="tile-image" ng-src="{{boat.image}}" />
                             <div class="caption">
                                 <h3 class="tile">{{ boat.title }}</h3>
                                 <p class="tile">{{ boat.description }}</p>
                                 <p class="tile">{{ boat.type }}</p>
                                 <p class="tile">{{ boat.capacity }}</p>
                                 <p class="tile"><i class="fa fa-map-marker"></i> {{ boat.location }}</p>
-                                <p class="tile text-center"><b style="color: green; font-size: 16pt;">{{ boat.price }}/hr or {{ boat.price / boat.capacity}} </b></p>
+                                <p class="tile text-center"><b style="color: green; font-size: 16pt;">{{ boat.price }}/hr - {{ boat.price / boat.capacity}}/person </b></p>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
-            
 
-       
     </body>
 
 </html>

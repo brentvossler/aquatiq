@@ -12,7 +12,7 @@ var s3Client = s3.createClient ({
 
 function create (req, res) {
 
-	console.log("Got boat!");
+	console.log("Got boat!", req.body);
 
 	var body = req.body.data;
 	var file = req.files.files;
@@ -40,11 +40,12 @@ function create (req, res) {
     uploader.on('end', function(){
         // Where all the interesting stuff will happen
         var url = s3.getPublicUrlHttp('socalboat', filePath) //Takes Bucket name and filepath IN the bucket
-        console.log('URL', url)
+        console.log('URL', url);
 
         body.image = url;
+        body.owner = req.session.userId;
         var newBoat = new boat(body);
-    
+    	
         newBoat.save(function(err, doc){
             if(err) {
             	res.send(err);
@@ -56,8 +57,10 @@ function create (req, res) {
 }
 
 function get (req, res) {
-	if(req.params.id) {
-		boat.findOne({_id : req.params.id}, function(err, document) {
+
+	console.log("Params:",req.params)
+	if(req.params.boatId) {
+		boat.findOne({_id : req.params.boatId}, function(err, document) {
 
 			if(err) {
 				return res.send(err);
@@ -68,17 +71,21 @@ function get (req, res) {
 			res.send(document);
 		});
 	}
+	// example of how to create relationships
 	else {
-		boat.find({}, function(err, documents) {
-			if(err) {
-				return res.send(err);
-			}
-			res.send(documents);
+		boat
+			.find({})
+			.populate('owner')
+			.exec( function (err, documents) {
+				if(err) {
+					return res.send(err);
+				}
+				res.send(documents);
 		});
 	}
-}
+}	
 
 module.exports = {
 	create 	: create,
-	get 	: get,
+	get 	: get
 }

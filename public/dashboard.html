@@ -21,7 +21,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" type ="text/css" />
-        <link rel="stylesheet" href="main.css" type="text/css" />
+        <link rel="stylesheet" href="/main.css" type="text/css" />
         
         <!-- angular -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
@@ -31,7 +31,7 @@
         <!-- Custom JS -->
         <script src="/js/controller.js"></script>
         <script src="/js/factory.js"></script>
-        <script src="/js/lib/hotjar.js"></script>
+
     </head>
 
     <body ng-controller="mainController as main">
@@ -103,9 +103,20 @@
 							<div class="row">
 								<div class="form-group col-xs-12 col-md-8">
 									<label for="">Location</label>
-									<input ng-model="main.newBoat.location" type="text" class="form-control" required="yes">
+                                    <select ng-model="main.newBoat.location" required="yes">
+                                        <option value="" selected disabled>Choose Location</option>
+                                        <option value="Mission Bay">Mission Bay</option>
+                                        <option value="San Diego Bay">San Diego Bay</option>
+                                    </select>
 								</div>
 							</div>
+
+                            <div class="row">
+                                <div class="form-group col-xs-12 col-md-8">
+                                    <label for="">Address where boat is located</label>
+                                    <input ng-model="main.newBoat.address" type="text" class="form-control" required="yes">
+                                </div>
+                            </div>
 
 							<div class="row">
 								<div class="form-group col-xs-12 col-md-4">
