@@ -32,6 +32,14 @@ body {
     padding-top: 50px;
     background-color: #162037
 }
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    .video-custom {
+        display: none;
+    }
+}
 .theme-block {
     background-color: #162037;
     color: white;
@@ -46,8 +54,14 @@ body {
 .video-custom {
     width: 100%;
 }
-.margin-bottom {
-    margin-bottom: 0;
+.margin-bottom-0 {
+    margin-bottom: 0px;
+}
+.padding-bottom-0 {
+    padding-bottom: 0px;
+}
+.margin-bottom-20 {
+    margin-bottom: 20px;
 }
 .offset-jumbo {
     position: relative;
@@ -76,6 +90,9 @@ footer {
     background-color: #162037;
     color: #162037;
 }
+.margin-top-50 {
+    margin-top: 50px;
+}
 .video-custom {
     width: 100%;
 }
@@ -90,6 +107,7 @@ footer {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
 }
 
 .tile-image {
@@ -98,6 +116,6 @@ footer {
 }
 
 .tile-price {
-    color: green; 
-    font-size: 16pt;
+    color: green;
+
 }
