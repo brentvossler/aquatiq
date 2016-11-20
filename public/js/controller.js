@@ -4,7 +4,9 @@ angular.module('boatApp', ['ngFileUpload', 'ngRoute'])
 mainController.$inject = ['boatFactory', '$location'];
 
 function mainController(boatFactory, $location) {
-	var main = this;
+	console.info('Main controller :: loaded');
+
+    var main = this;
 	main.boat = {};
 	main.newBoat = {};
     main.boatList = [];
@@ -15,13 +17,13 @@ function mainController(boatFactory, $location) {
     		.then(function(returnData) {
 
     			main.newBoat = {}; //reset the form
-    			main.getBoat(); // will show boat created
-    			console.log('Response from server: ', returnData)
+    			//main.getBoat(); // will show boat created
+    			main.getUserBoats();
+                console.log('Response from server: ', returnData)
     		});
     }
 
     main.getBoat = function() {
-
         //var boatId = window.location.search.substring(1).split('=')[1];
         var boatId = window.location.pathname.split('/')[2];
         console.log("RouteParams BoatID: ", boatId);
@@ -36,14 +38,40 @@ function mainController(boatFactory, $location) {
     				// if array (has length), store in boatList
     				main.boatList = returnData.data;
     			}
-    			else {
-    				//if not, store in main.boat?
-    				main.boat = returnData.data;
-    			}
+                else {
+                    main.boatList = [];
+                }
+    		
 			})
 	}
 
+    main.getUserBoats = function() {
+        console.log("Getting user boats...");
+        boatFactory.getUserBoats()
+            .then(function(returnData){
+                if(returnData.data.length) {
 
-main.getBoat(); // get all the boats
+                    console.log("Should have new boat list");
+                    // if array (has length), store in boatList
+                    main.boatList = returnData.data;
+
+                    console.log("New boat list: ", main.boatList)
+                } else {
+                    main.boatList = [];
+                }
+
+            })
+    }
+
+    main.deleteUserBoats = function(boatId) {
+        console.log("Boat ID:", boatId)
+        boatFactory.deleteUserBoats(boatId)
+            .then(function(returnData) {
+                console.log("boat deleted", returnData);
+                main.getUserBoats();
+            })
+    }
+
+// main.getBoat(); // get all the boats
 // main.getBoat("123123234234"); // get one boat by ID
 }

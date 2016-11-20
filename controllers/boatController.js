@@ -70,11 +70,9 @@ function get (req, res) {
 			}
 			res.send(document);
 		});
-	}
-	// example of how to create relationships
-	else {
+	} else {
 		boat
-			.find({})
+			.find(req.query)
 			.populate('owner')
 			.exec( function (err, documents) {
 				if(err) {
@@ -83,9 +81,50 @@ function get (req, res) {
 				res.send(documents);
 		});
 	}
-}	
+}
+
+function getUserBoats ( req, res ) {
+	if( req.session.userId ) {
+		var userId = new require('mongoose').Types.ObjectId( req.session.userId );
+
+		boat.find({ owner: userId }, (err, boats) => {
+			if( err ) {
+				console.error(err);
+				res.status(500).send(err);
+			} else {
+				res.json(boats);
+			}
+		});
+	} else {
+		res.status(403).end();
+	}
+}
+
+function deleteUserBoats (req, res) {
+
+	console.log("Delete post body:", req.body)
+	if( req.session.userId ) {
+		console.log("User logged in");
+		//var userId = new require('mongoose').Types.ObjectId( req.session.userId );
+
+		boat.findOneAndRemove({ owner: req.session.userId, _id: req.body._id }, function(err, boats){
+			if( err ) {
+				console.error(err);
+				res.send(err);
+			} else {
+				res.send(boats);
+			}
+		});
+	} else {
+		console.log("Not logged in")
+		res.end();
+
+	}
+}
 
 module.exports = {
 	create 	: create,
-	get 	: get
+	get 	: get,
+	getUserBoats: getUserBoats,
+	deleteUserBoats: deleteUserBoats
 }

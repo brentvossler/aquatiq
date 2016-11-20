@@ -26,6 +26,14 @@ function boatFactory($http, Upload) {
 			console.log("boatdata: ", boatData)
 			// boatID = boatID ? '/' + boatID : ''
 			return $http.get('/api/boats/'+ boatData)
-		}
+		},		
+
+		getUserBoats : function(boatData) {
+			return $http.get('/api/user/boats');
+		},
+		deleteUserBoats : function(boatData) {
+			return $http.post('/api/user/boats', boatData);
+		},
+
 	}
 }

@@ -30,11 +30,10 @@
         <!-- Custom JS -->
         <script src="/js/controller.js"></script>
         <script src="/js/factory.js"></script>
-        <script src="../../contact.js"></script>
 
     </head>
 
-    <body ng-controller = "mainController as main">
+    <body ng-controller = "mainController as main" ng-init="main.getBoat()">
 
         <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top theme">
@@ -68,10 +67,8 @@
 
         Details:
 
-        {{main.boat}}
-
-        <h1>{{main.boat.title}}</h1>
-        <img ng-src="{{main.boat.image}}"></img>
+        <h1>{{main.boatList[0].title}}</h1>
+        <img ng-src="{{main.boatList[0].image}}"></img>
         
         <br/><br/>
 

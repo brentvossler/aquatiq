@@ -62,12 +62,14 @@ module.exports = function(app) {
     // app.get('/register')
     // http//localhost:3000/register
     app.post('/register', user.register);
-
-	app.post('/api/boats', multiparty, boat.create);
+	
+	app.get('/api/user/boats', boat.getUserBoats);
 
 	app.get('/api/boats', boat.get);
 	app.get('/api/boats/:boatId', boat.get);
 	
+	app.post('/api/boats', multiparty, boat.create);
+	app.post('/api/user/boats', boat.deleteUserBoats);
 
 	app.use(express.static("public"));
 }

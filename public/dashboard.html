@@ -33,7 +33,7 @@
         <script src="/js/factory.js"></script>
 
     </head>
-
+    <body ng-controller="mainController as main">
     <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top theme">
             <div class="container-fluid">
@@ -66,32 +66,26 @@
 
         <!-- Begin Form -->
 		<div class="theme-block">
-			<div class="container theme-block">
+			<div class="container form-group">
 				<div class="row">
-					
 					<form ng-submit="main.createBoat()">
 						<div class="col-xs-12">
-
-							<h2><u>Tell us about the rental:</u></h2>
-
+							<h2>Tell us about the rental:</h2>
 							<div class="row">
-								<div class="form-group col-xs-12 col-md-8">
-									<label for="">Title</label>
-									<input ng-model="main.newBoat.title" type="text" class="form-control" required="yes">
+								<div class="form-group col-xs-12 col-md-4">
+									<input ng-model="main.newBoat.title" type="text" class="form-control " required="yes" placeholder="Title">
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="form-group col-xs-12 col-md-8">
-									<label for="">Description</label>
-									<textarea ng-model="main.newBoat.description" type="text" class="form-control" required="yes"></textarea>
+								<div class="form-group col-xs-12 col-md-4">
+									<textarea ng-model="main.newBoat.description" type="text" class="form-control" required="yes" placeholder="Description"></textarea>
 								</div>
 							</div>
 
 							<div class="row">
-								<div class="form-group col-xs-12 col-md-8">
-									<label for="">Type</label>
-                                    <select ng-model="main.newBoat.type" required="yes">
+								<div class="form-group col-xs-12 col-md-2">
+                                    <select class="form-control" ng-model="main.newBoat.type" required="yes" placeholder="">
                                         <option value="" selected disabled>Choose a type</option>
                                         <option value="power boat">Power Boat</option>
                                         <option value="sail boat">Sail Boat</option>
@@ -100,9 +94,8 @@
 							</div>
 
 							<div class="row">
-								<div class="form-group col-xs-12 col-md-8">
-									<label for="">Location</label>
-                                    <select ng-model="main.newBoat.location" required="yes">
+								<div class="form-group col-xs-12 col-md-2">
+                                    <select class="form-control" ng-model="main.newBoat.location" required="yes" placeholder="">
                                         <option value="" selected disabled>Choose Location</option>
                                         <option value="Mission Bay">Mission Bay</option>
                                         <option value="San Diego Bay">San Diego Bay</option>
@@ -111,44 +104,55 @@
 							</div>
 
                             <div class="row">
-                                <div class="form-group col-xs-12 col-md-8">
-                                    <label for="">Address where boat is located</label>
-                                    <input ng-model="main.newBoat.address" type="text" class="form-control" required="yes">
+                                <div class="form-group col-xs-12 col-md-4">
+                                    <input ng-model="main.newBoat.address" type="text" class="form-control" required="yes" placeholder="Address">
                                 </div>
                             </div>
 
 							<div class="row">
 								<div class="form-group col-xs-12 col-md-4">
-									<label for="">Capacity</label>
-									<input ng-model="main.newBoat.capacity" type="text" class="form-control" required="yes">
+									<input ng-model="main.newBoat.capacity" type="text" class="form-control" required="yes" placeholder="Capacity">
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="form-group col-xs-12 col-md-4">
-									<label for="">Price/hr</label>
-									<input ng-model="main.newBoat.price" type="text" class="form-control" required="yes">
+									<input ng-model="main.newBoat.price" type="text" class="form-control" required="yes" placeholder="Price per hour">
 								</div>
 							</div>
 						
                             <div class="row">
                                 <div class="form-group col-xs-12 col-md-4">
                                     <label for="">Upload an Image</label>
-                                    <input type="file"  
-                                        ng-model="main.newBoat.image" 
-                                        ngf-pattern="'image/*'"
-                                        ngf-accept="'image/*'"
-                                        ngf-select=""
-                                    >
-                                    <!-- <input ng-model="main.newBoat.image" type="text" class="form-control" required="yes"> -->
+                                    <input type="file" ng-model="main.newBoat.image" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-select="" required="yes">
                                 </div>
                             </div>
-						<button type="submit" class="btn btn-primary navbar-btn">Submit</button>
-						<br/><br/><br/>
+                        </div>    
+                        <button type="submit" class="btn btn-primary navbar-btn">Submit</button>
 					</form>
 				</div>
 			</div>
 		</div>
+
+        <section class="theme-block" ng-init="main.getUserBoats()">
+            <div class="container">
+                <h3 class="theme-block"> Your boats: </h3>
+                <div ng-repeat="boat in main.boatList">
+                    <div class="col-xs-12 col-sm-3">
+                        <a ng-href="/details/{{boat._id}}">
+                        <div class="thumbnail">
+                            <img class="tile-image" ng-src="{{boat.image}}" />
+                            <div class="caption">
+                                <h3 class="tile">{{ boat.title }}</h3>
+                            </div>
+                            </a>
+
+                            <button ng-click="main.deleteUserBoats({_id:boat._id})">Delete</button>
+                        </div>
+                                            </div>
+                </div>
+            </div>
+        </section>
 
     </body>
 

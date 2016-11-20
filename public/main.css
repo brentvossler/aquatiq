@@ -40,6 +40,9 @@ body {
     background-color: white;
     color: #162037;
 }
+.form-text {
+    color: gray;
+}
 .video-custom {
     width: 100%;
 }

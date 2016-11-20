@@ -18,7 +18,7 @@ angular.module('loginApp', [])
             $http.post('/login', loginInfo)
                 .then(function(res) {
                     console.info(res.data);
-                    location.href = '/';
+                    location.href = '/dashboard';
                 }, function(err) {
                     // DO NOT FORGET!!!! an error callback
                     // when things go bad, you need this!!!!!!!!
