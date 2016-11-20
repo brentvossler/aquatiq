@@ -25,7 +25,7 @@ const sessions = require('client-sessions')({
     }); // encrypted cookies!
 
 app.use(sessions);
-PORT = process.env.PORT || 8080;
+PORT = process.env.PORT || 80;
 
 // routes
 routes(app);
