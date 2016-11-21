@@ -27,6 +27,7 @@ function mainController(boatFactory, $location) {
         //var boatId = window.location.search.substring(1).split('=')[1];
         var boatId = window.location.pathname.split('/')[2];
         console.log("RouteParams BoatID: ", boatId);
+        
         if(boatId === undefined) {
             boatId = "";
         }
@@ -39,7 +40,7 @@ function mainController(boatFactory, $location) {
     				main.boatList = returnData.data;
     			}
                 else {
-                    main.boatList = [];
+                    main.boatList = [];      
                 }
     		
 			})

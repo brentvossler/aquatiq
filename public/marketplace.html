@@ -67,7 +67,6 @@
 
         <!-- begin tiles -->
         <section class="margin-top-50">
-            
                 <div ng-repeat="boat in main.boatList">
                     <div class="col-xs-12 col-md-3">
                         <a ng-href="/details/{{boat._id}}">
@@ -83,8 +82,21 @@
                         </a>
                     </div>
                 </div>   
-            
         </section>
+
+    <!-- Start Footer Copyright Bar -->
+        <footer class="theme-block">
+                <div class="row"> 
+                    <div class="col-xs-12"> 
+                        <div>
+                            <a class="navbar-brand" href="/"><i class="fa fa-anchor fa-2x footer-brand"></i></a>
+                        </div>
+                        <div style="padding: 18px">
+                            <p class="pull-left small">Copyright &#169 2016 SoCalBoat</p> <p class="pull-right small">Made with <i class="fa fa-heart" style="color: red;"></i> in San Diego!</p>
+                        </div>
+                    </div>
+                </div>
+        </footer>
 
     </body>
 

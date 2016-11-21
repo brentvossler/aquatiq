@@ -61,7 +61,7 @@ body {
     padding-bottom: 0px;
 }
 .margin-bottom-20 {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 .offset-jumbo {
     position: relative;
@@ -71,7 +71,6 @@ body {
     color: white;
     padding: 5px;
 }
-
 /*Footer*/
 footer {
     position: fixed;
@@ -79,7 +78,6 @@ footer {
     bottom: 0;
     width: 100%;
 }
-
 /*Marketplace*/
 .thumbnail-custom {
     width: 175px;
@@ -96,11 +94,9 @@ footer {
 .video-custom {
     width: 100%;
 }
-
 .round-border {
     border-radius: 10px;
 }
-
 /* Tile in marketplace styles */
 .tile {
     width: 100%;
@@ -109,13 +105,15 @@ footer {
     text-overflow: ellipsis;
     text-align: center;
 }
-
 .tile-image {
     max-height: 130px;
     width: auto;
 }
-
 .tile-price {
     color: green;
 
+}
+.details-image{
+    max-height: 300px;
+    width: auto;
 }

@@ -33,8 +33,7 @@
 
     </head>
 
-    <body ng-controller = "mainController as main" ng-init="main.getBoat()">
-
+    <body ng-controller="mainController as main">
         <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top theme">
             <div class="container-fluid">
@@ -65,49 +64,62 @@
             </div>
         </nav>
 
-        Details:
-
-        <h1>{{main.boatList[0].title}}</h1>
-        <img ng-src="{{main.boatList[0].image}}"></img>
         
-        <br/><br/>
-
-        Reserve: 
-        <div class="theme-block">
-            <div class="container theme-block">
-                <div class="row">
-                    
-                    <form method="post" action="/send">
-                        <div class="col-xs-12">
-                            <h3>Send us any additional details and we'll contact you directly with details of the reservation!</h3>
-                            
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-md-8">
-                                    <label for="">Name</label>
-                                    <input name="name" type="text" class="form-control" required="yes">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-md-8">
-                                    <label for="">Email</label>
-                                    <input name="email" type="email" class="form-control" required="yes">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-xs-12 col-md-8">
-                                    <label for="">Message</label>
-                                    <textarea name="message" type="text" class="form-control" required="yes"></textarea>
-                                </div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary navbar-btn">Reserve</button>
-                        </div>
-                    </form>
-                </div>
+        <div class="jumbotron theme-block margin-bottom-0">
+            <div class="container">
+            <div class="row margin-top-50 col-xs-12 col-md-6">
+                <img class="details-image" src="http://www.flaminggorgecountry.com/media/uploads/images/Boating-couples.jpg">
+            </div>     
+        
+            <div class="row col-xs-12 col-md-6">
+                <h1>TITLE</h1>
+                <p>Buncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boat</p>
+                <p>capacity</p>
+                <p>location</p>
+                <p>price</p>
+                <p>Price per person</p>
+            </div>
             </div>
         </div>
+
+        <div class="container theme-block margin-bottom-20">
+            <div class="row col-xs-12 col-md-6 col-md-offset-3">
+                <form class="form-group" method="post" action="/send">
+                    <h3>Send us any additional details and we'll contact you directly with details of the reservation!</h3>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input name="name" type="text" class="form-control" required="yes">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input name="email" type="email" class="form-control" required="yes">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Message</label>
+                        <textarea name="message" type="text" class="form-control" required="yes"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary navbar-btn">Reserve</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Start Footer Copyright Bar -->
+        <footer class="theme-block">
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-xs-12"> 
+                        <div>
+                            <a class="navbar-brand" href="/"><i class="fa fa-anchor fa-2x footer-brand"></i></a>
+                        </div>
+                        <div style="padding: 18px">
+                            <p class="pull-left small">Copyright &#169 2016 SoCalBoat</p> <p class="pull-right small">Made with <i class="fa fa-heart" style="color: red;"></i> in San Diego!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
     </body>
 

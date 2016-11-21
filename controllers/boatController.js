@@ -58,7 +58,7 @@ function create (req, res) {
 
 function get (req, res) {
 
-	console.log("Params:",req.params)
+	console.log("Params:", req.params)
 	if(req.params.boatId) {
 		boat.findOne({_id : req.params.boatId}, function(err, document) {
 
