@@ -35,12 +35,20 @@ function mainController(boatFactory, $location) {
     	boatFactory.getBoat(boatId)
     		.then(function(returnData) {
                 console.log("string", returnData);
+                console.log("Return data length: ", returnData.data.length);
     			if(returnData.data.length) {
+
     				// if array (has length), store in boatList
-    				main.boatList = returnData.data;
+    				 main.boatList = returnData.data
+                     console.log("BoatList: ", main.boatList);
     			}
+                else if(returnData.data){
+                    main.boatList = [];
+                    main.boatList.push(returnData.data);
+                }
                 else {
-                    main.boatList = [];      
+                    main.boatList = [];  
+                    console.log("BoatList: ", main.boatList);    
                 }
     		
 			})

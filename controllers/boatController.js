@@ -60,13 +60,13 @@ function get (req, res) {
 
 	console.log("Params:", req.params)
 	if(req.params.boatId) {
-		boat.findOne({_id : req.params.boatId}, function(err, document) {
+		boat.findOne({_id : req.params.boatId}).populate('owner').exec(function(err, document) {
 
 			if(err) {
 				return res.send(err);
 			}
 			if(!document){
-				return res.send("Can't find this boat")
+				return res.send("Can't find this boat");
 			}
 			res.send(document);
 		});

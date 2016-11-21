@@ -116,4 +116,5 @@ footer {
 .details-image{
     max-height: 300px;
     width: auto;
+    padding: 0px;
 }

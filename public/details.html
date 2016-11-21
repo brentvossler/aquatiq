@@ -33,7 +33,7 @@
 
     </head>
 
-    <body ng-controller="mainController as main">
+    <body ng-controller="mainController as main" ng-init="main.getBoat()">
         <!-- Begin Nav Bar -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top theme">
             <div class="container-fluid">
@@ -64,27 +64,26 @@
             </div>
         </nav>
 
-        
         <div class="jumbotron theme-block margin-bottom-0">
             <div class="container">
-            <div class="row margin-top-50 col-xs-12 col-md-6">
-                <img class="details-image" src="http://www.flaminggorgecountry.com/media/uploads/images/Boating-couples.jpg">
-            </div>     
-        
-            <div class="row col-xs-12 col-md-6">
-                <h1>TITLE</h1>
-                <p>Buncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boatBuncha stuff about the boat</p>
-                <p>capacity</p>
-                <p>location</p>
-                <p>price</p>
-                <p>Price per person</p>
-            </div>
+                <div class="row margin-top-50 col-xs-12 col-md-6">
+                    <img class="details-image" ng-src="{{main.boatList[0].image}}">
+                </div>     
+            
+                <div class="row col-xs-12 col-md-6">
+                    <h1>{{main.boatList[0].title}}</h1>
+                    <p>{{main.boatList[0].description}}</p>
+                    <p>{{main.boatList[0].capacity}}</p>
+                    <p>{{main.boatList[0].location}}</p>
+                    <p class="tile-price"><b>${{main.boatList[0].price}}</b> / Hour</p>
+                    <p class="tile-price">As low as <b>${{main.boatList[0].price / main.boatList[0].capacity}}</b> per person</p>
+                </div>
             </div>
         </div>
 
         <div class="container theme-block margin-bottom-20">
             <div class="row col-xs-12 col-md-6 col-md-offset-3">
-                <form class="form-group" method="post" action="/send">
+                <form class="form-group" method="post" action="/reserve">
                     <h3>Send us any additional details and we'll contact you directly with details of the reservation!</h3>
                     <div class="form-group">
                         <label for="">Name</label>
@@ -104,6 +103,7 @@
                 </form>
             </div>
         </div>
+
 
         <!-- Start Footer Copyright Bar -->
         <footer class="theme-block">

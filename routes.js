@@ -27,7 +27,37 @@ module.exports = function(app) {
 	})
 
 
-	app.post('/send', function (req, res, next) {
+	app.post('/registrationRequest', function (req, res, next) {
+	 	var transporter = nodemailer.createTransport({
+	 		service: 'Gmail',
+	 		auth: {
+	 			user: 'socalboat@gmail.com',
+	 			pass: config.nodemailer_pass
+	 		}
+	 	});
+
+	 	var mailOptions = {
+	 		from: 'Admin @ <socalboat@gmail.com>',
+	 		to: "socalboat@gmail.com",
+	 		// req.body.email,
+	 		subject: 'Your Reservation Information',
+	 		text: 'You have a  new message with the following details ... Name ' + req.body.name+ ' Email: ' + req.body.email + ' Message: ' +req.body.message,
+	 		html: "<p>You have a  new message with the following details</p><ul><li>Name:"+req.body.name+"</li><li>Email: "+req.body.email+"</li><li>Message:"+req.body.message+"</li></ul>"
+	 	};
+
+	 	transporter.sendMail(mailOptions, function(err, info){
+	 		if(err){
+	 			console.log(err);
+	 			res.send("Error sending mail!", err);
+	 		}
+	 		else {
+	 			console.log("'Message sent" + info.response);
+	 			res.redirect("/");
+	 		}  
+	 	});
+	});
+
+	app.post('/reserve', function (req, res, next) {
 	 	var transporter = nodemailer.createTransport({
 	 		service: 'Gmail',
 	 		auth: {
@@ -39,6 +69,7 @@ module.exports = function(app) {
 	 	var mailOptions = {
 	 		from: 'Admin @ <socalboat@gmail.com>',
 	 		to: req.body.email,
+	 		// req.body.email,
 	 		subject: 'Your Reservation Information',
 	 		text: 'You have a  new message with the following details ... Name ' + req.body.name+ ' Email: ' + req.body.email + ' Message: ' +req.body.message,
 	 		html: "<p>You have a  new message with the following details</p><ul><li>Name:"+req.body.name+"</li><li>Email: "+req.body.email+"</li><li>Message:"+req.body.message+"</li></ul>"
@@ -66,7 +97,7 @@ module.exports = function(app) {
 	app.get('/api/user/boats', boat.getUserBoats);
 
 	app.get('/api/boats', boat.get);
-	app.get('/api/boats/:boatId', boat.get);
+	app.get('/api/boats/:boa', boat.get);
 	
 	app.post('/api/boats', multiparty, boat.create);
 	app.post('/api/user/boats', boat.deleteUserBoats);
