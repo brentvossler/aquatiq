@@ -8,7 +8,7 @@ var s3Client = s3.createClient ({
 		accessKeyId : config.AWS_KEY,
 		secretAccessKey : "kCUSfDcq7rhqQugyfVctTOIGBusV40dsxwQt3ig1"
 	}
-})
+}) 
 
 function create (req, res) {
 
