@@ -80,7 +80,4 @@ function mainController(boatFactory, $location) {
                 main.getUserBoats();
             })
     }
-
-// main.getBoat(); // get all the boats
-// main.getBoat("123123234234"); // get one boat by ID
 }
