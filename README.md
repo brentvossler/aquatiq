@@ -1,4 +1,6 @@
-SocalBoat is a project that I have been working on for a few weeks. This is for small boat rental companies to manage their inventories and reservations and publish their rentals in an easy-to-navigate marketplace as an additional distribution channel. 
+SocalBoat is a project that I have been working on. Built with MEAN stack (MongoDB, ExpressJS, AngularJS 1, NodeJS).
+
+This is for small boat rental companies to manage their inventories and reservations and publish their rentals in an easy-to-navigate marketplace as an additional distribution channel. 
 
 Site visitors will be able to find the perfect boat, invite friends to split payments and get out on the water much easier.
 
@@ -11,7 +13,9 @@ SO FAR:
 4. Login and registration system works.
 5. Rental company can Create and Delete listings.
 6. Listings appear in a marketplace.
-7. Amazon S3 integration complete. S3 holds all images 
+7. Amazon S3 integration complete. S3 holds all images
+8. Salt encryption
+9. Sessions and cookies
 
 NEXT:
 1. Need to be able to UPDATE/POST listings.
